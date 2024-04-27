@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block title %}
+    編集
+{% endblock %}
+
+{% block content %}
+    <h1>編集</h1>
+    <form method="post" enctype="multipart/form-data"> <!--画像の対応用-->
+        {% csrf_token %} <!--csrfトークンを作成-->
+        <!-- {{ form.as_p }} フォームの内容をpタグで囲って表示する -->
+        {{ form|bootstrap }} <!--bootstrapのフォーム作成-->
+        <br>
+        <a href="{% url 'list' %}">戻る</a>
+        <input type="submit" class="btn btn-primary" value="更新">
+    </form>
+{% endblock %}
